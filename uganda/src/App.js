@@ -1,25 +1,83 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
+import Header from "./header"
+// import Preloader from './components/Preloader'
+import M from "materialize-css"; 
+import './App.css'
+const $ = window.$;
+M.AutoInit();
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.tap-target');
+  var instances = M.TapTarget.init(elems, {});
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.tooltipped');
+  var instances = M.Tooltip.init(elems, {});
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems, {});
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.materialboxed');
+  var instances = M.Materialbox.init(elems, {duration: 400 });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.dropdown-trigger');
+  var instances = M.Dropdown.init(elems, {hover: true});
+});
+
+
+
+class App extends Component {
+ 
+  componentDidMount() {
+    var elem = document.querySelector('.carousel');
+    var instance = M.Carousel.init(elem, {fullWidth: true,
+      indicators: true });
+  }
+
+
+
+
+  render() {
+    return(
+      
+      <main>
+         
+         <Header/>
+
+ <footer>
+          <div class="footer-copyright">
+            <div class="container">
+             Forged In Fire By The <a class="green-text" href="https://github.com/WareDave">WareDave  <i class="fa fa-github"></i></a> 
+            <a class="pink-text text-lighten-4 right" href="/">© 2020 Copyright</a>
+
+           
+            </div>
+          </div>
+        
+ </footer>       
+
+      </main>
+     
+    )
+  }
 }
 
 export default App;
+
+
+
+
+
+
+
+ 
